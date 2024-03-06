@@ -5,6 +5,7 @@ import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { DbModule } from './db/db.module';
 
 
 @Module({
@@ -20,7 +21,8 @@ import { ConfigModule } from '@nestjs/config';
       synchronize: true,
       entities: [User],
     }),
-    UsersModule],
+    UsersModule,
+    DbModule],
   controllers: [AppController],
   providers: [AppService],
 })
