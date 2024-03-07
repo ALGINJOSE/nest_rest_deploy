@@ -6,27 +6,31 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { DbModule } from './db/db.module';
+import { User } from './users/entities/user.entity';
 
 
 @Module({
   imports:[
+  TypeOrmModule.forFeature([User]),
   ConfigModule.forRoot({
     ignoreEnvFile: true,
     
+    
   }),
-    // TypeOrmModule.forRoot({
-    //   type: 'postgres',
-    //   port: 5433,
-    //   host: "localhost",
-    //   username: "postgres",
-    //   password: "AS143283*",
-    //   database: "postgres",
-    //   synchronize: true,
-    //   entities: [User],
-    // }),
-    // UsersModule,
-    // DbModule
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      port: 5433,
+      host: "localhost",
+      username: "postgres",
+      password: "AS143283*",
+      database: "postgres",
+      synchronize: true,
+      entities: [User],
+    }),
+    DbModule
   ],
+  
+  
   controllers: [AppController],
   providers: [AppService],
 })

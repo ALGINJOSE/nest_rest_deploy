@@ -1,15 +1,15 @@
-// import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 
-// @Entity()
+@Entity()
 
-// export class User {
-//     @PrimaryGeneratedColumn()
-//     id: number;
+export class User {
+    @PrimaryGeneratedColumn()
+    id: number;
 
-//     @Column({type:'varchar', length:30})
-//     email:string;
+    @Column({type:'varchar', length:30})
+    email:string;
 
-//     @Column({type:'varchar', length:30})
-//     password:string; 
-// }
+    @Column({type:'varchar', length:30})
+    password:string; 
+}
