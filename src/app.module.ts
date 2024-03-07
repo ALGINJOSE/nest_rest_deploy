@@ -10,7 +10,10 @@ import { DbModule } from './db/db.module';
 
 @Module({
   imports:[
-  ConfigModule.forRoot(),
+  ConfigModule.forRoot({
+    ignoreEnvFile: true,
+    isGlobal: true,
+  }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       port: 5433,
