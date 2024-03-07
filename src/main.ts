@@ -1,8 +1,9 @@
-import * as express from 'express';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = express();
-  app.get('/', (_req, res) => res.send('Hello world!'));
-  await new Promise<void>((resolve) => app.listen(7000, resolve));
+  const app = await NestFactory.create(AppModule);
+  await app.listen(process.env.PORT || 7000);
 }
 bootstrap();
+
