@@ -7,11 +7,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { DbModule } from './db/db.module';
 import { User } from './users/entities/user.entity';
+import { UsersModule } from './users/users.module';
+
 
 
 @Module({
   imports:[
-  TypeOrmModule.forFeature([User]),
   ConfigModule.forRoot({
     ignoreEnvFile: true,
     
@@ -27,6 +28,7 @@ import { User } from './users/entities/user.entity';
       synchronize: true,
       entities: [User],
     }),
+    UsersModule,
     DbModule
   ],
   
